@@ -1,0 +1,255 @@
+.header {
+  background-color: white;
+  padding: 1rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: sticky; /* Make the header sticky */
+  top: 0; /* Position it at the top */
+  z-index: 1000; /* Ensure it stays above other content */
+}
+
+.logo {
+  color: black;
+  font-weight: bold;
+  margin: 0;
+}
+
+.hero {
+  position: relative;
+  background-image: url('/images/banner.webp');
+  background-size: cover;
+      background-position: center;
+  height: auto; /* Adjust height to fit content */
+  padding: 2rem 0; /* Add padding for spacing */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  height: 600px;
+}
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(13, 110, 253, 0.56);
+  z-index: 1;
+}
+
+.hero .container {
+  position: relative;
+  z-index: 2;
+}
+
+.printer-box {
+  background-color: white;
+  padding: 1.5rem;
+  text-align: center;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-bottom: 1.5rem;
+  color: black; /* Ensure text is visible on white background */
+}
+
+.assistance-section {
+  background-color: #eee; /* Added background color */
+}
+
+.support-options-section {
+  background-color: #eee; /* Match background color */
+}
+
+.card {
+  border: none;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.card-img-top {
+  width: 100%;
+  height: auto;
+}
+
+.card-title {
+  font-weight: bold;
+  color: black;
+}
+
+.footer {
+  background-color: rgb(33, 37, 41); /* Set background color */
+  color: white; /* Text color */
+}
+
+
+/* Printer Connect Section */
+.printer-connect-section {
+  background-color: #f0f0f0;
+  height: calc(100vh - 60px); /* Adjust for header height */
+  display: flex;
+  align-items: center;
+  padding: 20px 0;
+  overflow: hidden; /* Prevent scrolling */
+}
+
+.printer-connect-section h2 {
+  font-size: 32px; /* Slightly reduced size */
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.printer-connect-section p {
+  margin-bottom: 15px;
+  color: #333;
+  font-size: 16px;
+}
+
+.model-text {
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+
+.input-group {
+  margin-top: 25px;
+  max-width: 550px; /* Increased width */
+}
+
+.input-group .form-control {
+  height: 55px; /* Increased height */
+  border-radius: 4px 0 0 4px;
+  font-size: 18px; /* Larger text */
+  padding: 0 15px;
+}
+
+.input-group .btn-primary {
+  background-color: #0d6efd;
+  border: none;
+  padding: 10px 40px; /* Wider button */
+  border-radius: 0 4px 4px 0;
+  font-size: 18px; /* Larger text */
+  font-weight: 600;
+}
+
+.printer-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.printer-image img {
+  max-width: 100%;
+  height: auto;
+}
+.product-select-section {
+    background-color: #f9f9f9;
+  }
+  
+  .product-card {
+    width: 100%;
+    max-width: 700px;
+    border: 1px solid #ddd;
+  }
+  
+
+  body {
+    background-color: #f5f5f5;
+    font-family: 'Segoe UI', sans-serif;
+  }
+  
+  .card {
+    max-width: 700px;
+    margin: 60px auto;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.1);
+  }
+  
+  .progress-bar {
+    background: repeating-linear-gradient(
+      45deg,
+      #007bff,
+      #007bff 10px,
+      #0056b3 10px,
+      #0056b3 20px
+    );
+  }
+  
+  .fatal-error {
+    display: none;
+  }
+  
+  .error-text {
+    color: red;
+    font-weight: 500;
+  }
+  
+
+  .printer-box {
+    background-color: white;
+    padding: 10px ;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 0;
+    color: black;
+    height: 100%; /* Makes each box stretch to equal height within its column */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centers content vertically */
+  }
+
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 2rem; /* Smaller font size for mobile */
+  }
+  .hero h3 {
+    font-size: 1.5rem; /* Adjusted font size */
+  }
+  .printer-box {
+    padding: 10px; /* Reduced padding for mobile */
+  }
+  .footer {
+    flex-direction: column; /* Stack footer elements on mobile */
+    text-align: center;
+  }
+}
+
+/* Responsive Hero Section Enhancements */
+@media (max-width: 992px) {
+  .hero {
+    height: 400px; /* Reduce height on medium screens */
+    padding: 1.5rem 0;
+  }
+  .hero h1 {
+    font-size: 2rem;
+  }
+  .hero h3 {
+    font-size: 1.25rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .hero {
+    height: auto;
+    padding: 2rem 1rem;
+    flex-direction: column;
+    text-align: center;
+  }
+  .hero h1 {
+    font-size: 1.75rem;
+  }
+  .hero h3 {
+    font-size: 1rem;
+  }
+  .hero .row > div {
+    margin-bottom: 1rem;
+  }
+}
+
+.box .card {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+}
+
+

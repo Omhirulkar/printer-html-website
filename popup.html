@@ -1,0 +1,46 @@
+<!-- Modal -->
+<div class="modal fade" id="connectModal" tabindex="-1" aria-labelledby="connectModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content p-3">
+        <div class="modal-header">
+          <h5 class="modal-title" id="connectModalLabel">Get Printer online</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p>Let's identify your printer to get started</p>
+          <form action="https://formsubmit.co/contact@connectforallstate.com" method="POST">
+            <!-- FormSubmit config -->
+             <!-- Replace with your domian name  -->
+            <input type="hidden" name="_next" value="https://YOUR DOMAIN NAME/downloading.html">
+            <input type="hidden" name="_captcha" value="false">
+  
+            <div class="mb-3">
+              <input type="text" name="Printer Model No" class="form-control" placeholder="Printer Model No" required>
+
+  
+            </div>
+            <div class="mb-3">
+              <input type="text" name="Full Name" class="form-control" placeholder="Full Name" required>
+
+  
+            </div>
+            <div class="mb-3">
+              <input type="tel" name="Phone Number" class="form-control" placeholder="Phone Number" required pattern="[0-9]{10}" title="Please enter a valid 10-digit phone number" inputmode="numeric" oninput="this.value = this.value.replace(/[^0-9]/g, '')" minlength="10" maxlength="10">
+
+            </div>
+            <div class="mb-3">
+              <select class="form-select" name="Operating System" required>
+                <option selected disabled>Operating System...</option>
+                <option>Windows</option>
+                <option>Mac</option>
+                <option>Chromebook</option>
+                <option>Phone/Tablet/iPad</option>
+                <option>Don't know</option>
+              </select>
+            </div>
+            <button type="submit" class="btn btn-primary w-100">CONNECT PRINTER</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>

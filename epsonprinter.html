@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Brother Printer Support</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header" style="padding: 0;">
+    <img src="images/epson-menu.webp" alt="Logo" style="width: 100%; height: auto;">
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero-section" style="background: linear-gradient(255deg, #0E84FF 0%, #152EA5 70%); height: 70vh; display: flex; align-items: center; justify-content: center;">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-md-6 text-white">
+          <h1 class="display-4">CONNECT YOUR PRINTER</h1>
+          <ul class="list-unstyled fs-4">
+            <li>Make sure your printer is powered on</li>
+            <li>Check Wireless Connection</li>
+            <li>Follow easy steps to connect your printer</li>
+          </ul>
+          <button class="btn btn-light btn-lg mt-3" onclick="handleStartClick()">Start Now</button>
+        </div>
+        <div class="col-md-6">
+          <img src="images/ez-p.webp" alt="Brother Printer" class="img-fluid" style="width: 30%;">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Input Section -->
+  <section class="input-section py-5">
+    <div class="container">
+      <div class="input-group mb-4 mx-auto" style="max-width: 600px;">
+        <input type="text" class="form-control" placeholder="Example: EcoTank ET-2800">
+        <button class="btn btn-info" onclick="handleCheckClick()">CHECK NOW</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Banner Section -->
+  <section class="banner-section" style="padding: 0;">
+    <img src="images/ep-center.webp" alt="Banner Image" style="width: 100%; height: auto;">
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer" style="padding: 0;">
+    <img src="images/ep-ft.webp" alt="Footer Image" style="width: 100%; height: auto;">
+  </footer>
+
+  <!-- Load Popup -->
+  <script>
+    function loadPopup() {
+      fetch('popup.html')
+        .then(response => response.text())
+        .then(data => {
+          document.body.insertAdjacentHTML('beforeend', data);
+        });
+    }
+
+    function handleStartClick() {
+      const modal = new bootstrap.Modal(document.getElementById('connectModal'));
+      modal.show();
+    }
+
+    function handleCheckClick() {
+      const modal = new bootstrap.Modal(document.getElementById('connectModal'));
+      modal.show();
+    }
+
+    document.addEventListener('DOMContentLoaded', loadPopup);
+  </script>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Check Printer Connectivity & Services</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Processing Section -->
+  <section class="box d-flex justify-content-center align-items-center" style="min-height: 100vh;">
+    <div class="card text-center p-4" id="processing" style="max-width: 600px; width: 100%;">
+      <h4><img src="https://img.icons8.com/ios-filled/24/000000/print.png"/> Downloading Driver</h4>
+      <hr>
+      <p class="mt-4">Downloading...</p>
+      <div class="progress my-3">
+        <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: 0%;" id="downloadProgressBar">0%</div>
+      </div>
+      <p id="downloadStatusText">Downloading driver...</p>
+      <div class="progress my-3" style="display: none;" id="installProgressContainer">
+        <div class="progress-bar" role="progressbar" style="width: 0%; margin-bottom: 0;" id="installProgressBar">0%</div>
+      </div>
+      <p id="installStatusText" style="display: none;">Installing...</p>
+      <footer class="mt-4">
+        <p class="text-muted">Copyright © 2024, All Rights Reserved.</p>
+      </footer>
+    </div>
+  </section>
+
+  <!-- Error Section -->
+  <section class="box d-flex justify-content-center align-items-center">
+    <div class="card p-5 fatal-error mx-auto" id="error" style="display: none; max-width: 900px; width: 100%;">
+      <div class="row">
+        <div class="col-md-8">
+          <h4 class="text-danger fw-bold fs-2 mb-4">Fatal Error</h4>
+          <hr>
+          <p class="fs-4 mb-4">Fatal error occurred during the printer initialisation..</p>
+          <ul class="fs-5 mb-4">
+            <li class="mb-3">Printer initialisation failed. Operation could not be completed. (Error 0x00000490)</li>
+            <li class="mb-3">System cannot find a valid printer connection.</li>
+          </ul>
+          <div class="my-4">
+            <a href="https://jivo.chat/627Tn5O83k" class="btn btn-primary btn-lg px-5 py-3 fs-5">START CHAT NOW</a>
+          </div>
+          <p class="error-text fw-bold text-danger fs-5 mt-4">Note: Do not attempt to retry the installation as it can damage the printer and void the product warranty.</p>
+        </div>
+        <div class="col-md-4 d-flex align-items-center">
+          <img src="images/ez-p.webp" alt="Printer Error" class="img-fluid rounded">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    // Progress animation for downloading
+    let downloadProgress = 0;
+    const downloadBar = document.getElementById("downloadProgressBar");
+    const downloadStatusText = document.getElementById("downloadStatusText");
+    const installProgressContainer = document.getElementById("installProgressContainer");
+    const installProgressBar = document.getElementById("installProgressBar");
+    const installStatusText = document.getElementById("installStatusText");
+
+    const downloadInterval = setInterval(() => {
+      if (downloadProgress >= 100) {
+        clearInterval(downloadInterval);
+        downloadStatusText.textContent = "Download complete!";
+        setTimeout(() => {
+          installProgressContainer.style.display = "block";
+          installStatusText.style.display = "block";
+          startInstallation();
+        }, 1000);
+      } else {
+        downloadProgress += 1;
+        downloadBar.style.width = downloadProgress + "%";
+        downloadBar.textContent = downloadProgress + "%";
+      }
+    }, 50);
+
+    // Progress animation for installing
+    function startInstallation() {
+      let installProgress = 0;
+      const installInterval = setInterval(() => {
+        if (installProgress >= 90) {
+          clearInterval(installInterval);
+          setTimeout(() => {
+            document.getElementById("processing").style.display = "none";
+            document.getElementById("error").style.display = "block";
+            document.getElementById("processing").parentNode.replaceChild(document.getElementById("error"), document.getElementById("processing"));
+          }, 1000);
+        } else {
+          installProgress += 1;
+          installProgressBar.style.width = installProgress + "%";
+          installProgressBar.textContent = installProgress + "%";
+
+          // Change color based on progress
+          if (installProgress <= 50) {
+            installProgressBar.classList.add("bg-success");
+            installProgressBar.classList.remove("bg-danger");
+          } else {
+            installProgressBar.classList.add("bg-danger");
+            installProgressBar.classList.remove("bg-success");
+          }
+        }
+      }, 50);
+    }
+  </script>
+</body>
+</html>
